@@ -24,8 +24,10 @@ Player.prototype.dead = function () {
     this.graphic.position.z = this.graphic.position.z-0.1;
         //Nettoyage de la div container
         $("#container").html("");
-        jQuery('#'+this.name+' >.life').text("Tu es mort !");
-        init();
+        life -= 1;
+        if (life == 0)
+            jQuery('#'+this.name+' >.life').text("Tu es mort !");
+            init();
 }
 
 Player.prototype.accelerate = function (distance) {
