@@ -24,10 +24,11 @@ Player.prototype.dead = function () {
     this.graphic.position.z = this.graphic.position.z-0.1;
         //Nettoyage de la div container
         $("#container").html("");
-        life -= 1;
-        if (life == 0)
-            jQuery('#'+this.name+' >.life').text("Tu es mort !");
-            init();
+        this.life -= 1;
+        jQuery('#'+this.name+' >.life').text("Tu es mort !");
+        if (this.life == 0)
+            jQuery('#'+this.name+' >.life').text("C'est la fin !");
+        init();
 }
 
 Player.prototype.accelerate = function (distance) {
