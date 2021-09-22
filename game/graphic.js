@@ -34,7 +34,7 @@ function init()
 
 function Ground(color, size_x, size_y, nb_tile)
 {
-    colors = Array(0xff0000, 0x00ff00, 0x0000ff, 0x000000);
+    colors = Array(0xff0000, 0x00ff00, 0x0000ff, 0xffff00);
 
     sizeOfTileX = size_x / nb_tile;
     minX = -(size_x/2);
@@ -66,7 +66,7 @@ function Ground(color, size_x, size_y, nb_tile)
 
 function Light(name, color, position)
 {
-    pointLight = new THREE.PointLight(color, 50, 500);
+    pointLight = new THREE.PointLight(color, 50, 800);
 
     pointLight.position.x = position.split(',')[0];
     pointLight.position.y = position.split(',')[1];
