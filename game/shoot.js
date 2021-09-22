@@ -1,4 +1,5 @@
 var bulletTime1 = 0;
+var bulletTime1 = 0;
 
 var bullet_player1_material = new THREE.MeshLambertMaterial(
 {
@@ -19,7 +20,20 @@ function shoot()
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
         bulletTime1 = clock.getElapsedTime();
-    } 
+    }
+
+    if (keyboard.pressed("delete") && bulletTime2 + 0.8 < clock.getElapsedTime())
+    {
+        bullet = new THREE.Mesh(
+            new THREE.SphereGeometry(2),
+            bullet_player2_material);
+        scene.add(bullet);
+        bullet.position.x = player2.graphic.position.x + 7.5 * Math.cos(player2.direction);
+        bullet.position.y = player2.graphic.position.y + 7.5 * Math.sin(player2.direction);
+        bullet.angle = player1.direction;
+        player2.bullets.push(bullet);
+        bulletTime2 = clock.getElapsedTime();
+    }
 
     // move bullets
     var moveDistance = 5;
